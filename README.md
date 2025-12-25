@@ -100,6 +100,7 @@ To integrate with a real AI service (as an example, let's take OpenAI), you will
 
 1. **Install AI SDK:**
    ```bash
+   cd ../backend
    npm install openai
    ```
 
@@ -108,8 +109,7 @@ To integrate with a real AI service (as an example, let's take OpenAI), you will
    npm install dotenv
    ```
 
-3. **Set API Key**
-   Create a `.env` file (if you haven't already) in backend and add your API key:
+3. **Set API Key** - create a `.env` file (if you haven't already) in backend and add your API key:
    ```
    OPENAI_API_KEY=your_api_key
    ```
