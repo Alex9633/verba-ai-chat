@@ -1,11 +1,15 @@
 import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
 import cors from 'cors';
 
-// Use the base app URL from .env or fallback to the default localhost if it's missing
-const base_url = process.env.CHAT_APP_URL || 'http://localhost';
+// Load variables from .env
+dotenv.config();
+
+// Use the API URL from .env or fallback to the default localhost if it's missing
+const url = process.env.API_URL || 'http://localhost';
 
 // Use the port from .env or fallback to the default 8080 if it's missing
-const port = process.env.SERVER_PORT || 8080;
+const port = process.env.API_PORT || 8080;
 
 const app = express();
 
@@ -68,11 +72,13 @@ app.post('/api/chat', async (req: Request<{}, {}, ChatRequest>, res: Response<Ch
     }
 
     // Simulated error for testing (include 'error' in the message)
+    /*
     if (message.toLowerCase().includes('error')) {
       return res.status(500).json({
         error: 'Testing error popup'
       });
     }
+    */
     
     // Response artificial delay (1s - 2s)
     const delay = Math.random() * 2000;
@@ -104,6 +110,6 @@ app.get('/', (_req: Request, res: Response) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on ${base_url}:${port}`);
-  console.log(`Chat endpoint ${base_url}:${port}/api/chat`);
+  console.log(`Server running on ${url}:${port}`);
+  console.log(`Chat endpoint ${url}:${port}/api/chat`);
 });

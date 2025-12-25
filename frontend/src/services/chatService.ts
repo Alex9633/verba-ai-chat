@@ -1,10 +1,8 @@
 import { ChatRequest, ChatResponse } from '../types/chat';
 
-// Use the base app URL from .env or fallback to the default localhost if it's missing
-const base_url = process.env.CHAT_APP_URL || 'http://localhost';
-
-// Use the port from .env or fallback to the default 8080 if it's missing
-const port = process.env.SERVER_PORT || 8080;
+// Use the full API URL from .env or fallback to the default http://localhost:8080
+// Make sure the full url matches up with the API URL and API port from backend/src/server.ts
+const url = process.env.FULL_API_URL || 'http://localhost:8080';
 
 
 // Send the message to the server and return a response (or an error)
@@ -14,7 +12,7 @@ export const sendMessage = async (message: string): Promise<ChatResponse> => {
       message: message 
     };
     
-    const response = await fetch(`${base_url}:${port}/api/chat`, {
+    const response = await fetch(`${url}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify(requestData),
