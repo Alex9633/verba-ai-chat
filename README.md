@@ -101,7 +101,7 @@ To integrate with a real AI service (as an example, let's take OpenAI), you will
    npm install openai
    ```
 
-2. **Install dotenv:**
+2. **Install dotenv, if it's missing:**
    ```bash
    npm install dotenv
    ```
