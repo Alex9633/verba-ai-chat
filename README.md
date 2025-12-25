@@ -2,10 +2,12 @@
 
 This project is a simple full-stack web application that demonstrates a chat interface with a mocked AI backend response.
 
-### It Features:
+<img width="1920" height="1080" alt="verba_ai_app" src="https://github.com/user-attachments/assets/bf642349-aa11-46d6-ada1-4a48c6a1b738" />
+
+### Features:
 
 - Real-time chat interface with message history
-- Mock AI responses to different messages that contain: hello; how are you; help; ?; bye
+- Mock AI responses to different messages that contain: hello; how are you; help; ?; bye...
 - Responsive design that also works on smaller screens
 - Message timestamps that show when each message was sent
 - Typing indicators while the AI is thinking
