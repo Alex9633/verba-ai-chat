@@ -94,51 +94,6 @@ cd ../frontend
 npm run build
 ```
 
-## Integration with a real AI agent
-
-To integrate with a real AI service (as an example, let's take OpenAI), you will need to implement some changes to the backend:
-
-1. **Install AI SDK:**
-   ```bash
-   cd ../backend
-   npm install openai
-   ```
-
-2. **Install dotenv, if it's missing:**
-   ```bash
-   npm install dotenv
-   ```
-
-3. **Set API Key** - create a `.env` file (if you haven't already) in backend and add your API key:
-   ```
-   OPENAI_API_KEY=your_api_key
-   ```
-   
-4. **Update `server.ts`:**
-   ```typescript
-   import dotenv from 'dotenv';
-   import OpenAI from 'openai';
-
-   dotenv.config();
-   
-   const openai = new OpenAI({
-     apiKey: process.env.OPENAI_API_KEY
-   });
-   ```
-
-   Then update `genResponse()`:
-   ```typescript
-   async function genResponse(userMsg: string): Promise<string> {
-     const completion = await openai.chat.completions.create({
-       model: "gpt-4",
-       messages: [{ role: "user", content: userMsg }],
-     });
-     return completion.choices[0].message.content || '';
-   }
-   ```
-
-   And you should be done.
-
 ## Future Additions
 
 - User authentication
